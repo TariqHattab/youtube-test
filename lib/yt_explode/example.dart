@@ -24,12 +24,12 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
     });
     var url =
         'https://www.youtube.com/watch?v=w7fPVD3urV4&ab_channel=NoahKagan';
-    var videoId = 'w7fPVD3urV4';
+    var videoId = '01xazH8rmoo';
     var yt = YoutubeExplode();
     print('case 1');
     StreamManifest? streamInfo;
     try {
-      streamInfo = await yt.videos.streamsClient.getManifest(url);
+      streamInfo = await yt.videos.streamsClient.getManifest(videoId);
     } catch (e) {
       print('getManifest failed');
       print('case 1 finished failer');
@@ -47,14 +47,7 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
     String appDocPath = appDocDir.path;
     var file = File('$appDocPath/$videoId');
     print(file);
-    // var fileStream = file.openWrite();
 
-    // Pipe all the content of the stream into our file.
-    // await yt.videos.streamsClient.get(audio).pipe(fileStream);
-    //delete file if exists
-    // if (file.existsSync()) {
-    //   file.deleteSync();
-    // }
     var output = file.openWrite(mode: FileMode.writeOnlyAppend);
     var size = audio.size.totalBytes;
     var count = 0;
@@ -69,9 +62,10 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
       var msg = 'title video Downloaded to $appDocPath/$videoId';
       if (val == 1) {
         // for (val; val == 1.0; val++) {
-        if (mounted)
+        if (mounted) {
           ScaffoldMessenger.of(context)
               .showSnackBar(SnackBar(content: Text(msg)));
+        }
         print(file);
       }
       if (mounted) {
@@ -102,7 +96,7 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('example.dart'),
+        title: const Text('yt_explode/example.dart'),
         centerTitle: true,
       ),
       body: isloading
@@ -115,12 +109,12 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
                     const AlwaysStoppedAnimation<Color>(Colors.greenAccent),
               ),
             )
-          : Center(child: Text(streamInfoData ?? 'no date yet')),
+          : Center(child: Text(streamInfoData ?? 'click to download')),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             getStreamInfo();
           },
-          child: Icon(Icons.get_app)),
+          child: const Icon(Icons.get_app)),
     );
   }
 }

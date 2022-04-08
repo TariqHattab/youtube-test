@@ -61,8 +61,40 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_loading ? 'Loading...' : 'YouTube'),
+        title: Text(_loading ? 'Loading...' : 'Using YouTube Api '),
       ),
+      // floatingActionButton: Row(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     FloatingActionButton(
+      //       onPressed: () async {
+      //         Response response = await Services.getVideoInfo();
+      //         print(response.body);
+      //       },
+      //       child: const Icon(Icons.send),
+      //     ),
+      //     const SizedBox(
+      //       width: 10,
+      //     ),
+      //     FloatingActionButton(
+      //       onPressed: () async {
+      //         GoogleSignInAccount? response = await UsingGoogle.signin();
+      //         print(response);
+      //       },
+      //       child: const Icon(Icons.ad_units),
+      //     ),
+      //     const SizedBox(
+      //       width: 10,
+      //     ),
+      //     FloatingActionButton(
+      //       onPressed: () async {
+      //         _getChannelInfo();
+      //         // print(response);
+      //       },
+      //       child: const Icon(Icons.change_circle_outlined),
+      //     ),
+      //   ],
+      // ),
       body: Container(
         color: Colors.white,
         child: Column(
@@ -96,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         }));
                       },
                       child: Container(
-                        padding: EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Row(
                           children: [
                             CachedNetworkImage(
@@ -104,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   videoItem.video?.thumbnails?.defult?.url ??
                                       '',
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             Flexible(
                                 child: Text(videoItem.video?.title ??
                                     'video was null so no title')),
@@ -124,9 +156,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _buildInfoView() {
     return _loading
-        ? CircularProgressIndicator()
+        ? const CircularProgressIndicator()
         : Container(
-            padding: EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(20.0),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -137,18 +169,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         _item.snippet?.thumbnails?.medium?.url ?? '',
                       ),
                     ),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                       child: Text(
                         _item.snippet?.title ?? '',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
                     Text(_item.statistics?.videoCount ?? 'statistics was null'),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                   ],
                 ),
               ),

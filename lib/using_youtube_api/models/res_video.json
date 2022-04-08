@@ -1,0 +1,66 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "2b6EqwvryX0NoraBsbkMEh0v1B4",
+    "items": [{
+        "kind": "youtube#video",
+        "etag": "42H7x29_s28MukbQdo5TW8O9CtA",
+        "id": "MOfeXHO2Q30",
+        "snippet": {
+            "publishedAt": "2022-04-07T18:26:11Z",
+            "channelId": "UCv_iKAGT61lE-TSF6KrP1TQ",
+            "title": "Login UI",
+            "description": "",
+            "thumbnails": {
+                "default": {
+                    "url": "https://i.ytimg.com/vi/MOfeXHO2Q30/default.jpg",
+                    "width": 120,
+                    "height": 90
+                },
+                "medium": {
+                    "url": "https://i.ytimg.com/vi/MOfeXHO2Q30/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                },
+                "high": {
+                    "url": "https://i.ytimg.com/vi/MOfeXHO2Q30/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                }
+            },
+            "channelTitle": "Tariq ziyad Hattab",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+                "title": "Login UI",
+                "description": ""
+            }
+        },
+        "contentDetails": {
+            "duration": "PT21S",
+            "dimension": "2d",
+            "definition": "hd",
+            "caption": "false",
+            "licensedContent": false,
+            "contentRating": {},
+            "projection": "rectangular",
+            "hasCustomThumbnail": false
+        },
+        "statistics": {
+            "viewCount": "4",
+            "likeCount": "0",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+        },
+        "fileDetails": {
+            "fileName": "Login_UI.mp4",
+            "fileSize": "6307419",
+            "fileType": "video",
+            "container": "mov"
+        }
+    }],
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 1
+    }
+}

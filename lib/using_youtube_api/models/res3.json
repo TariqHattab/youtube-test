@@ -1,0 +1,88 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "LuAdpMiXhpfHd9zm6GCxg2zPG9M",
+    "items": [{
+        "kind": "youtube#video",
+        "etag": "quHgy3jC6j-tzZnvNkZ2LsFGIu8",
+        "id": "01xazH8rmoo",
+        "snippet": {
+            "publishedAt": "2022-04-08T16:38:09Z",
+            "channelId": "UCv_iKAGT61lE-TSF6KrP1TQ",
+            "title": "2",
+            "description": "",
+            "thumbnails": {
+                "default": {
+                    "url": "https://i.ytimg.com/vi/01xazH8rmoo/default.jpg",
+                    "width": 120,
+                    "height": 90
+                },
+                "medium": {
+                    "url": "https://i.ytimg.com/vi/01xazH8rmoo/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                },
+                "high": {
+                    "url": "https://i.ytimg.com/vi/01xazH8rmoo/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                }
+            },
+            "channelTitle": "Tariq ziyad Hattab",
+            "categoryId": "22",
+            "liveBroadcastContent": "none",
+            "localized": {
+                "title": "2",
+                "description": ""
+            }
+        },
+        "contentDetails": {
+            "duration": "PT55S",
+            "dimension": "2d",
+            "definition": "sd",
+            "caption": "false",
+            "licensedContent": false,
+            "contentRating": {},
+            "projection": "rectangular",
+            "hasCustomThumbnail": false
+        },
+        "statistics": {
+            "viewCount": "2",
+            "likeCount": "0",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+        },
+        "recordingDetails": {},
+        "fileDetails": {
+            "fileName": "2.mp4",
+            "fileType": "video",
+            "container": "mov",
+            "videoStreams": [{
+                "widthPixels": 400,
+                "heightPixels": 640,
+                "frameRateFps": 59.94005994005994,
+                "aspectRatio": 0.625,
+                "codec": "h264",
+                "bitrateBps": "1657737"
+            }],
+            "audioStreams": [{
+                "channelCount": 2,
+                "codec": "aac",
+                "bitrateBps": "184177"
+            }],
+            "bitrateBps": "1841914"
+        },
+        "processingDetails": {
+            "processingStatus": "succeeded",
+            "fileDetailsAvailability": "available",
+            "processingIssuesAvailability": "available",
+            "tagSuggestionsAvailability": "inProgress",
+            "editorSuggestionsAvailability": "inProgress",
+            "thumbnailsAvailability": "available"
+        }
+    }],
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 1
+    }
+}
