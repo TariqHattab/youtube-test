@@ -147,7 +147,7 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
         children: [
           FloatingActionButton(
               onPressed: () {
-                // getStreamInfo();
+                getStreamInfo();
               },
               child: const Icon(Icons.get_app)),
           const SizedBox(
