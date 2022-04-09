@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_test/using_youtube_api/screens/youtube_api.dart';
 
-import 'package:youtube_test/youtube_player_flutter/youtube_player_flutter_main.dart';
 import 'package:youtube_test/yt_explode/example.dart';
-import 'package:youtube_test/yt_explode/example2_screen.dart';
-
-import 'download_video/download_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,9 +38,9 @@ class Pages extends StatelessWidget {
       children: [
         HomeScreen(),
         const DummyYoutubeExplodePage(),
-        const DownloadScreen(),
-        DownloadExample2(),
-        YoutubePlayerDemoApp(),
+        // const DownloadScreen(),
+        // DownloadExample2(),
+        // YoutubePlayerDemoApp(),
       ],
     );
   }

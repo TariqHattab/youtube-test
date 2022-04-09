@@ -143,6 +143,7 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
             )
           : Center(child: Text(streamInfoData ?? 'click to download')),
       floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FloatingActionButton(
               onPressed: () {
@@ -161,7 +162,7 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
                               file: downloadedFile,
                             )));
               },
-              child: const Icon(Icons.watch)),
+              child: const Icon(Icons.video_file_outlined)),
           const SizedBox(
             width: 10,
           ),
