@@ -5,6 +5,8 @@ import 'package:path_provider/path_provider.dart';
 // ignore_for_file: avoid_print
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 
+import '../local_Network_chewie_player/full_view_video.dart';
+
 class DummyYoutubeExplodePage extends StatefulWidget {
   const DummyYoutubeExplodePage({Key? key}) : super(key: key);
 
@@ -18,18 +20,25 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
   double progress = 0;
   File? downloadedFile;
 
+  // @override
+  // initState() {
+  //   super.initState();
+  //   downloadedFile =
+  //       File('/data/user/0/com.example.youtube_test/app_flutter/01xazH8rmoo-2');
+  // }
+
   Future<void> getStreamInfo() async {
     setState(() {
       isloading = true;
     });
     var url =
-        'https://www.youtube.com/watch?v=w7fPVD3urV4&ab_channel=NoahKagan';
+        'https://www.youtube.com/watch?v=LXb3EKWsInQ&ab_channel=Jacob%2BKatieSchwarz';
     var videoId = '01xazH8rmoo';
     var yt = YoutubeExplode();
     print('case 1');
     StreamManifest? streamInfo;
     try {
-      streamInfo = await yt.videos.streamsClient.getManifest(videoId);
+      streamInfo = await yt.videos.streamsClient.getManifest(url);
     } catch (e) {
       print('getManifest failed');
       print('case 1 finished failer');
@@ -37,10 +46,18 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
       return;
     }
     print('case 1 finished');
-
-    var audio = streamInfo.muxed.bestQuality;
+    // for (var s in streamInfo.muxed) {
+    //   log(s.toJson()['tag'].toString());
+    //   log(s.toJson()['url'].toString());
+    //   log(s.toJson()['videoResolution'].toString());
+    //   log(s.toJson()['videoQuality'].toString());
+    //   log(s.toJson()['size'].toString()); //315//337
+    // }
+    var audio = streamInfo.muxed[2];
+    // var audio = streamInfo.videoOnly.firstWhere((e) => e.tag == 315);
     var audioStream = yt.videos.streamsClient.get(audio);
-
+    // log(audioStream.toString());
+    print(audioStream);
     print('case 2');
     Directory appDocDir = await getApplicationDocumentsDirectory();
     print('case 2 finished');
@@ -75,7 +92,12 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
       // Write to file.
       output.add(data);
     }
-
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (ctx) => FullViewVideo(
+                  file: file,
+                )));
     // // Close the file.
     // await fileStream.flush();
     // await fileStream.close();
@@ -84,6 +106,16 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
     if (mounted) {
       setState(() {
         downloadedFile = File('$appDocPath/$videoId');
+        downloadedFile?.stat().then((value) {
+          if (mounted) {
+            print(
+                "-----------------------------------------------------------------------------------------------------------");
+            print(value.size.toString());
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(value.size.toString())));
+          }
+        });
+
         streamInfoData = streamInfo.toString();
         isloading = false;
       });
@@ -110,11 +142,31 @@ class _DummyPageState extends State<DummyYoutubeExplodePage> {
               ),
             )
           : Center(child: Text(streamInfoData ?? 'click to download')),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            getStreamInfo();
-          },
-          child: const Icon(Icons.get_app)),
+      floatingActionButton: Row(
+        children: [
+          FloatingActionButton(
+              onPressed: () {
+                // getStreamInfo();
+              },
+              child: const Icon(Icons.get_app)),
+          const SizedBox(
+            width: 10,
+          ),
+          FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (ctx) => FullViewVideo(
+                              file: downloadedFile,
+                            )));
+              },
+              child: const Icon(Icons.watch)),
+          const SizedBox(
+            width: 10,
+          ),
+        ],
+      ),
     );
   }
 }
